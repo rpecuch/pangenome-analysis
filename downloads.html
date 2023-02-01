@@ -17,14 +17,16 @@
           <p class="lead">For now this will just direct you to download genomes, but in the future may display status info for different steps in the project.</p>
         </div>
     </div>
-    <!-- form for searching for genomes -->
+    <!-- form for searching for genomes and original order files-->
     <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Species</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <small id="emailHelp" class="form-text text-muted">Make sure to select 'Complete genome' for the Assembly level on the left hand side before downloading assemblies</small>
+          <label for="speciesInput">Species:</label>
+          <input type="email" class="form-control" id="speciesInput" aria-describedby="emailHelp">
         </div>
         <button type="submit" class="btn btn-primary">Find Assemblies</button>
+        <button type="submit" class="btn btn-primary">Find Original Order</button>
+        <small id="genomeHelp" class="form-text text-muted">Make sure to select 'Complete genome' for the Assembly level on the left hand side before downloading assemblies</small>
+        <small id="orderHelp" class="form-text text-muted">Make sure to select 'Complete' for the Assembly level under Filters before downloading original order file</small>
       </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
