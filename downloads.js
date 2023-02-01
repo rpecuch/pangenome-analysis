@@ -18,9 +18,11 @@ const findAssembly = (e) => {
     linkEl.textContent = 'Download Assemblies';
     linkEl.setAttribute('href', `https://www.ncbi.nlm.nih.gov/assembly/?term=${genus}+${species}`);
     linkEl.setAttribute('target', '_blank');
+    linkEl.setAttribute('id', 'assemblyLink');
     assemblyContainer.append(linkEl);
     // make user directions stand out
     genomeHelp.classList.remove('text-muted');
+    orderHelp.classList.add('text-muted');
 }
 
 const findOrder = (e) => {
@@ -33,9 +35,11 @@ const findOrder = (e) => {
     linkEl.textContent = 'Download Original Order';
     linkEl.setAttribute('href', `https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/${genus}%20${species}`);
     linkEl.setAttribute('target', '_blank');
+    linkEl.setAttribute('id', 'orderLink');
     orderContainer.append(linkEl);
     // make user directions stand out
     orderHelp.classList.remove('text-muted');
+    genomeHelp.classList.add('text-muted');
 }
 
 // add event listeners to respective btns
