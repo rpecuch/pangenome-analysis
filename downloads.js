@@ -2,10 +2,14 @@
 const speciesInput = document.querySelector('#speciesInput');
 const assemblyBtn = document.querySelector('#assemblyBtn');
 const orderBtn = document.querySelector('#orderBtn');
-const assemblyContainer = document.querySelector('#assemblyContainer');
-const orderContainer = document.querySelector('#orderContainer');
+const assemblyLink = document.querySelector('#assemblyLink');
+const orderLink = document.querySelector('#orderLink');
 const genomeHelp = document.querySelector('#genomeHelp');
 const orderHelp = document.querySelector('#orderHelp');
+
+// next steps
+    // new search
+    // do not allow empty search
 
 // search fxns
 const findAssembly = (e) => {
@@ -14,12 +18,8 @@ const findAssembly = (e) => {
     const genus = speciesInput.value.split(' ')[0].toLowerCase();
     const species = speciesInput.value.split(' ')[1].toLowerCase();
     // create link
-    const linkEl = document.createElement('a');
-    linkEl.textContent = 'Download Assemblies';
-    linkEl.setAttribute('href', `https://www.ncbi.nlm.nih.gov/assembly/?term=${genus}+${species}`);
-    linkEl.setAttribute('target', '_blank');
-    linkEl.setAttribute('id', 'assemblyLink');
-    assemblyContainer.append(linkEl);
+    assemblyLink.textContent = 'Download Assemblies';
+    assemblyLink.setAttribute('href', `https://www.ncbi.nlm.nih.gov/assembly/?term=${genus}+${species}`);
     // make user directions stand out
     genomeHelp.classList.remove('text-muted');
     orderHelp.classList.add('text-muted');
@@ -31,12 +31,8 @@ const findOrder = (e) => {
     const genus = speciesInput.value.split(' ')[0].toLowerCase();
     const species = speciesInput.value.split(' ')[1].toLowerCase();
     // create link
-    const linkEl = document.createElement('a');
-    linkEl.textContent = 'Download Original Order';
-    linkEl.setAttribute('href', `https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/${genus}%20${species}`);
-    linkEl.setAttribute('target', '_blank');
-    linkEl.setAttribute('id', 'orderLink');
-    orderContainer.append(linkEl);
+    orderLink.textContent = 'Download Original Order';
+    orderLink.setAttribute('href', `https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/${genus}%20${species}`);
     // make user directions stand out
     orderHelp.classList.remove('text-muted');
     genomeHelp.classList.add('text-muted');
