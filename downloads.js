@@ -7,6 +7,7 @@ const assemblyLink = document.querySelector('#assemblyLink');
 const orderLink = document.querySelector('#orderLink');
 const genomeHelp = document.querySelector('#genomeHelp');
 const orderHelp = document.querySelector('#orderHelp');
+const searchForm = document.querySelector('#searchForm');
 
 // search validation fxn
 const checkSearch = () => {
@@ -56,6 +57,14 @@ const findOrder = (e) => {
         // make user directions stand out
         orderHelp.classList.remove('text-muted');
         genomeHelp.classList.add('text-muted');
+        // create new search btn
+        const newBtn = document.createElement('button');
+        newBtn.classList.add('btn', 'btn-danger');
+        newBtn.textContent = 'New Search';
+        newBtn.addEventListener('click', function() {
+            window.location.reload;
+        })
+        searchForm.append(newBtn);
     }
 }
 
