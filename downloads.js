@@ -1,5 +1,6 @@
 // select needed elements and store them in variables
 const speciesInput = document.querySelector('#speciesInput');
+const helperText = document.querySelector('#helperText')
 const assemblyBtn = document.querySelector('#assemblyBtn');
 const orderBtn = document.querySelector('#orderBtn');
 const assemblyLink = document.querySelector('#assemblyLink');
@@ -9,11 +10,21 @@ const orderHelp = document.querySelector('#orderHelp');
 
 // next steps
     // new search
-    // do not allow empty search
 
 // search fxns
 const findAssembly = (e) => {
     e.preventDefault();
+    // prevent empty search
+    if (!speciesInput.value) {
+        helperText.textContent = 'Search cannot be empty!';
+        return;
+    }
+    // make sure proper format searched for
+    if (speciesInput.value.split(' ').length !== 2) {
+        helperText.textContent = 'Please enter the genus and species, separated by a space.';
+        return;
+    }
+    helperText.textContent = '';
     // retrieve genus and species from input box
     const genus = speciesInput.value.split(' ')[0].toLowerCase();
     const species = speciesInput.value.split(' ')[1].toLowerCase();
