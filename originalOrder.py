@@ -3,10 +3,14 @@ import os
 import shutil
 # this will need to be adjusted for each user
 downloadsPath = '/Users/ritapecuch/Downloads'
+userDrivePath = '/Volumes/Pangenome'
+fName = 'Rita'
+lName = 'Pecuch'
 # eventually can change this so at beginning of pipeline we take in genus and species and then use for all scripts
 organism = input('Enter your organism in the following format: Genus species --> ')
 genus = organism.split()[0].capitalize()
 species = organism.split()[1]
 # todo: eventually add validation
-os.rename(f'{downloadsPath}/prokaryotes.csv', f'{downloadsPath}/Species_name.csv')
-# shutil.move("/Users/ritapecuch/Downloads/Species_name.csv", "/Volumes/Pangenome/FirstLast/Species_genus/OriginalOrder")
+# todo: connect to network drive to test this
+os.rename(f'{downloadsPath}/prokaryotes.csv', f'{downloadsPath}/{genus}_{species}.csv')
+shutil.move(f'{downloadsPath}/{genus}_{species}.csv', f'{userDrivePath}/{fName}{lName}/{genus}_{species}/OriginalOrder')
